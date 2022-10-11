@@ -17,7 +17,7 @@ public class DataSourceTest {
     
     @Test
     public void testConnection() {
-      
+    	System.out.println("이까지는 되는지 테스트");
         try(Connection con = dataSource.getConnection();){
             
             System.out.println("con = " + con);
