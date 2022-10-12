@@ -104,7 +104,7 @@
 	            if(result === ''){
 	                reutrn;
 	            }
-	            if(result === "enroll success"){
+	            else if(result === "enroll success"){
 	                alert("등록이 완료되었습니다.");
 	            }
 	            
@@ -116,7 +116,11 @@
 	    
 	    $(".move").on("click", function(e){
 	        e.preventDefault();
+	        let nameEle = $("input[name=bno]");
+	        nameEle.remove();	//제이쿼리로 dom삭제
+	        //바닐라 자바스크립트로 하면 부모요소.removeChild(자식요소);
 	        
+	        //비어있는 moveForm에 동적으로 hidden input으로 글번호를 추가함. 나중에 다른것도 동적으로 추가하기위해
 	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
 	        moveForm.attr("action", "/board/get");
 	        moveForm.submit();
