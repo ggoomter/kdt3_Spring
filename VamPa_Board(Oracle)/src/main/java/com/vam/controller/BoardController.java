@@ -2,17 +2,22 @@ package com.vam.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vam.model.BoardVO;
+import com.vam.service.BoardService;
 
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
+	
+	@Autowired
+    private BoardService bservice;
 	
     @GetMapping("/list")
     // => @RequestMapping(value="list", method=RequestMethod.GET)
@@ -29,12 +34,16 @@ public class BoardController {
     // => @RequestMapping(value="enroll", method=RequestMethod.GET)
     public void boardEnrollGET() {
         log.info("게시판 등록 페이지 진입");
+        //return "WEB-INF/views/board/enroll.jsp"	화면 띄워줌
     }
     
     /* 게시판 등록 기능 */
     @PostMapping("/enroll")
-    public void boardEnrollPOST(BoardVO board) {
+    public String boardEnrollPOST(BoardVO board) {
         log.info("BoardVO : " + board);
+        bservice.enroll(board);
+        //void일 경우 localhost:8080/board/enroll 요청 보냄
+        return "redirect:/board/list";
     }
 	
 }
