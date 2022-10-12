@@ -68,6 +68,13 @@ public class BoardMapperTests {
     	//제대로 안바꼈으면 0반환
     	log.info("result : "+ result);
     }
+    
+    /* 게시판 삭제 */
+    @Test
+    public void testDelete() {
+        int result = mapper.delete(13);
+        log.info("result : " + result);
+    }
      
  
 }
