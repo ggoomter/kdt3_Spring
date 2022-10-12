@@ -10,7 +10,9 @@
     
     <!-- 게시판 목록 -->
     <select id="getList" resultType="com.vam.model.BoardVO">
-        select * from vam_board
+        <!-- select * from vam_board -->
+        SELECT ROWNUM, BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE
+		FROM VAM_BOARD ORDER BY ROWNUM
     </select>
     
     <!-- 게시판 조회 -->

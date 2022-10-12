@@ -63,7 +63,8 @@
 		<table>
 			<thead>
 				<tr>
-					<th class="bno_width">번호</th>
+					<th class="bno_width">가짜번호</th>
+					<th class="bno_width">진짜번호</th>
 					<th class="title_width">제목</th>
 					<th class="writer_width">작성자</th>
 					<th class="regdate_width">작성일</th>
@@ -71,8 +72,10 @@
 				</tr>
 			</thead>
 			<!-- 백단에서 넘어온 list변수를 순회하면서 하나의 요소를 list라는 이름으로 쓰겟다. -->
-        	<c:forEach items="${list}" var="list">
+        	<c:forEach items="${list}" var="list" varStatus="status">
 	            <tr>
+	                
+	                <td><c:out value="${status.index+1}"/></td>
 	                <td><c:out value="${list.bno}"/></td>
 	                <td>
                         <a class="move" href='<c:out value="${list.bno}"/>'>
