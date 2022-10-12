@@ -75,9 +75,9 @@
 	            <tr>
 	                <td><c:out value="${list.bno}"/></td>
 	                <td>
-	                    <a class="move" href='/board/get?bno=<c:out value="${list.bno}"/>'>
-	                        <c:out value="${list.title}"/>
-	                    </a>
+                        <a class="move" href='<c:out value="${list.bno}"/>'>
+					        <c:out value="${list.title}"/>
+					    </a>
                     </td>
 	                <td><c:out value="${list.writer}"/></td>
 	                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
@@ -86,6 +86,8 @@
         	</c:forEach>
 
 		</table>
+		<form id="moveForm" method="get">    
+    	</form>
 	</div>
 	
 	
@@ -108,6 +110,18 @@
 	            
 	        }    
 	    });
+	    
+	    
+	    let moveForm = $("#moveForm");
+	    
+	    $(".move").on("click", function(e){
+	        e.preventDefault();
+	        
+	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+	        moveForm.attr("action", "/board/get");
+	        moveForm.submit();
+	    });
+	    
 	</script>
 </body>
 </html>
