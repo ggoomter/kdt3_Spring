@@ -11,10 +11,83 @@
 	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	  crossorigin="anonymous">
 	</script>
+	<style>
+	  a{
+	  	text-decoration : none;
+	  }
+	  table{
+	 	border-collapse: collapse;
+	 	width: 1000px;    
+	 	margin-top : 20px;
+	 	text-align: center;
+	  }
+	  td, th{
+	  	border : 1px solid black;
+	  	height: 50px;
+	  }
+	  th{
+	  	font-size : 17px;
+	  }
+	  thead{
+	  	font-weight: 700;
+	  }
+	  .table_wrap{
+	  	margin : 50px 0 0 50px;
+	  }
+	  .bno_width{
+	  	width: 12%;
+	  }
+	  .writer_width{
+	  	width: 20%;
+	  }
+	  .regdate_width{
+	  	width: 15%;
+	  }
+	  .updatedate_width{
+	  	width: 15%;
+	  }
+	  .top_btn{
+	  	font-size: 20px;
+	    padding: 6px 12px;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	    font-weight: 600;
+	  }
+	</style>
 </head>
 <body>
 	<h1>목록페이지입니다.</h1>
-	<a href="/board/enroll">게시판 등록</a>
+	<div class="table_wrap">
+		<a href="/board/enroll" class="top_btn">게시판 등록</a>
+		<table>
+			<thead>
+				<tr>
+					<th class="bno_width">번호</th>
+					<th class="title_width">제목</th>
+					<th class="writer_width">작성자</th>
+					<th class="regdate_width">작성일</th>
+					<th class="updatedate_width">수정일</th>
+				</tr>
+			</thead>
+				<tr>
+					<td>번호 내용</td>
+					<td>제목 내용</td>
+					<td>작성자 내용</td>
+					<td>작성일 내용</td>
+					<td>수정일 내용</td>
+				</tr>
+				<tr>
+					<td>번호 내용</td>
+					<td>제목 내용</td>
+					<td>작성자 내용</td>
+					<td>작성일 내용</td>
+					<td>수정일 내용</td>
+				</tr>
+		</table>
+	</div>
+	
+	
+	
 	
 	
 	<!-- 스크립트 -->

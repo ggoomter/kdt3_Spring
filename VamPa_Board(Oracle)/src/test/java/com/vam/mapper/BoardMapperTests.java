@@ -1,5 +1,9 @@
 package com.vam.mapper;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -30,6 +34,15 @@ public class BoardMapperTests {
          
          mapper.enroll(vo);	//인터페이스의 함수를 호출하면 해당 id의 쿼리가 호출됨.
          
+     }
+     
+     /* 게시판 목록 테스트 */
+     @Test
+     public void testGetList() {
+         List list = mapper.getList();
+         for(Object a : list) {
+             log.info("" + a);
+         }
      }
      
  
