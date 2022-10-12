@@ -69,20 +69,17 @@
 					<th class="updatedate_width">수정일</th>
 				</tr>
 			</thead>
-				<tr>
-					<td>번호 내용</td>
-					<td>제목 내용</td>
-					<td>작성자 내용</td>
-					<td>작성일 내용</td>
-					<td>수정일 내용</td>
-				</tr>
-				<tr>
-					<td>번호 내용</td>
-					<td>제목 내용</td>
-					<td>작성자 내용</td>
-					<td>작성일 내용</td>
-					<td>수정일 내용</td>
-				</tr>
+			<!-- 백단에서 넘어온 list변수를 순회하면서 하나의 요소를 list라는 이름으로 쓰겟다. -->
+        	<c:forEach items="${list}" var="list">
+	            <tr>
+	                <td><c:out value="${list.bno}"/></td>
+	                <td><c:out value="${list.title}"/></td>
+	                <td><c:out value="${list.writer}"/></td>
+	                <td><c:out value="${list.regdate}"/></td>
+	                <td><c:out value="${list.updateDate}"/></td>
+	            </tr>
+        	</c:forEach>
+
 		</table>
 	</div>
 	
