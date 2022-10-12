@@ -51,7 +51,22 @@ public class BoardMapperTests {
         /* 실제 존재하는 페이지 */
         int bno = 8;
         log.info("" + mapper.getPage(bno));
-        
+    }
+    
+    @Test
+    public void testModify() {
+    	BoardVO board = new BoardVO();
+    	//어떤놈을 = pk 데이터를 전달
+    	board.setBno(1);
+    	
+    	//어떻게 바꿀건지
+    	board.setTitle("junit으로 바꾼 제목");
+    	board.setContent("junit으로 바꾼 내용");
+    	
+    	int result = mapper.modify(board);
+    	//제대로바꼈으면 1개가 insert됐으니까 1반환.
+    	//제대로 안바꼈으면 0반환
+    	log.info("result : "+ result);
     }
      
  
