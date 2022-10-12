@@ -49,5 +49,11 @@ public class BoardController {
         //void일 경우 localhost:8080/board/enroll 요청 보냄
         return "redirect:/board/list";
     }
+    
+    /* 게시판 조회 화면 */
+    @GetMapping("/get")
+    public void boardGetPageGet(int bno, Model model) {
+    	model.addAttribute("pageInfo", bservice.getPage(bno));
+    }
 	
 }

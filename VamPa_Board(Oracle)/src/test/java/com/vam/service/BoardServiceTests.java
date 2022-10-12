@@ -34,4 +34,11 @@ public class BoardServiceTests {
     public void testGetList() {
         service.getList().forEach(board -> log.info("" + board));        
     }
+    
+    /*게시판 조회*/
+    @Test
+    public void testGETPage() {
+        int bno = 8;
+        log.info("" + service.getPage(bno));
+    }
 }
