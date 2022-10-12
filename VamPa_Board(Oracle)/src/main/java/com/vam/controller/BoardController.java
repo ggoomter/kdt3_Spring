@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.vam.model.BoardVO;
 import com.vam.service.BoardService;
@@ -39,9 +40,10 @@ public class BoardController {
     
     /* 게시판 등록 기능 */
     @PostMapping("/enroll")
-    public String boardEnrollPOST(BoardVO board) {
+    public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
         log.info("BoardVO : " + board);
         bservice.enroll(board);
+        rttr.addFlashAttribute("result", "enroll success");
         //void일 경우 localhost:8080/board/enroll 요청 보냄
         return "redirect:/board/list";
     }
