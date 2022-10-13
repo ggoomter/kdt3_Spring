@@ -79,6 +79,8 @@ public class BoardMapperTests {
 	 @Test
 	 public void testGetListPaging() {
 	     Criteria cri = new Criteria();
+	     cri.setPageNum(3);
+	     cri.setAmount(15);
 	     List list = mapper.getListPaging(cri);
 	     list.forEach(board -> log.info("" + board));	//람다식
 	 }
