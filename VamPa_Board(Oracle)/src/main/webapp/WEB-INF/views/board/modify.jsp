@@ -95,6 +95,8 @@
 	
 	<form id="infoForm" action="/board/modify" method="get">
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+		<input type="hidden" name="pageNum" value="${cri.pageNum }">
+       	<input type="hidden" name="amount" value="${cri.amount }">  
 	</form>
 	
 	

@@ -67,12 +67,13 @@ public class BoardController {
     
     /* 게시판 수정 화면 */
     @GetMapping("/modify")
-    public void boardModifyGET(int bno, Model model) {
+    public void boardModifyGET(int bno, Model model, Criteria cri) {
     	//글수정 화면을 보이기위해서 필요한 정보가 뭐지? 	//백단에서 알수있는 정보와 프론트단에서 넘어와야할 정보
     	//클라이언트님. 설계자님. 화면에 어떤 정보가 보이길 원합니까?   화면에는 안보이지만 DB에 수정해야할 정보가 뭡니까?
     	//pk하나만 알면 db에서 모든 정보를 조회할수있다.
     	//글번호 하나만 알면 where bno=글번호  해서 해당글번호의 모든정보를 가져올수있음.
     	model.addAttribute("pageInfo", bservice.getPage(bno));  	
+    	model.addAttribute("cri", cri);
     	
     }
     
