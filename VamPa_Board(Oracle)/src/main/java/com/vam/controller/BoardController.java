@@ -52,7 +52,13 @@ public class BoardController {
     @PostMapping("/enroll")
     public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
         log.info("BoardVO : " + board);
-        bservice.enroll(board);
+        try {
+			bservice.enroll(board);
+		} catch (Exception e) {
+			rttr.addFlashAttribute("result", "enroll fail");
+			e.printStackTrace();
+			return "redirect:/board/list";
+		}
         rttr.addFlashAttribute("result", "enroll success");
         //void일 경우 localhost:8080/board/enroll 요청 보냄
         return "redirect:/board/list";
