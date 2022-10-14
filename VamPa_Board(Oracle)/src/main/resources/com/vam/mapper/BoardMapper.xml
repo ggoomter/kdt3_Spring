@@ -32,18 +32,29 @@
     
 
     <!-- 게시물 목록(페이징) -->
-    <select id="getListPaging" resultType="com.vam.model.BoardVO">
-    	<![CDATA[
+	<select id="getListPaging" resultType="com.vam.model.BoardVO">
+    <![CDATA[
         select bno, title, content, writer, regdate, updatedate from(
                 select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate
-                from vam_board where rownum <= #{pageNum} * #{amount}) 
+                from vam_board where rownum <= #{pageNum} * #{amount} 
+    ]]>            
+                <if test="keyword != null">
+                    and title like '%'||#{keyword}||'%' 
+                </if>
+    <![CDATA[
+                )
         where rn > (#{pageNum} -1) * #{amount}
-    	]]>
+    ]]>
     </select>
     
     <!-- 게시물 총 개숫 -->
     <select id="getTotal" resultType="int">
         select count(*) from vam_board
+         <if test="keyword != null">
+            where title like '%'||#{keyword}||'%'
+        </if>
     </select>
+    
+    
     
   </mapper>

@@ -84,6 +84,17 @@ public class BoardMapperTests {
 	     List list = mapper.getListPaging(cri);
 	     list.forEach(board -> log.info("" + board));	//람다식
 	 }
+	 
+    /* 게시판 목록(키워드 검색 적용)테스트 */
+	 @Test
+	 public void testGetListSearching() {
+	     Criteria cri = new Criteria();
+	     cri.setPageNum(3);
+	     cri.setAmount(10);
+	     cri.setKeyword("스프링");
+	     List list = mapper.getListPaging(cri);
+	     list.forEach(board -> log.info("" + board));	//람다식
+	 }
      
  
 }
