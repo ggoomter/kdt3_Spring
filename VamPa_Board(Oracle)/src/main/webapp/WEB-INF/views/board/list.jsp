@@ -79,6 +79,8 @@
 	<h1>목록페이지입니다.</h1>
 	<div class="table_wrap">
 		<a href="/board/enroll" class="top_btn">게시판 등록</a>
+		
+		<!-- 데이터영역 -->
 		<table>
 			<thead>
 				<tr>
@@ -108,6 +110,15 @@
         	</c:forEach>
 		</table>
 		
+		<!-- 검색영역 -->
+	    <div class="search_wrap">
+	        <div class="search_area">
+	            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+	            <button>Search</button>
+	        </div>
+	    </div>    
+		
+		<!-- 페이지영역 -->
 	    <div class="pageInfo_wrap" >
 	        <div class="pageInfo_area">
 	 			<ul id="pageInfo" class="pageInfo">
