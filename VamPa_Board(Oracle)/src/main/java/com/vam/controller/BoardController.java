@@ -48,6 +48,7 @@ public class BoardController {
         //return "WEB-INF/views/board/enroll.jsp"	화면 띄워줌
     }
     
+    
     /* 게시판 등록 기능 */
     @PostMapping("/enroll")
     public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
