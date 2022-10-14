@@ -29,4 +29,9 @@ public class Criteria {
         this.pageNum = pageNum;
         this.amount = amount;
     }
+    
+    public void setType(String type) {
+    	this.type = type;
+    	this.typeArr = type.split("");
+    }
 }
