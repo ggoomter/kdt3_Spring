@@ -13,6 +13,12 @@ public class Criteria {
     /* 검색키워드 */
     private String keyword;
     
+    /* 검색 타입 */
+    private String type;
+    
+    /* 검색 타입 배열 */
+    private String[] typeArr;
+    
     /* 기본 생성자 -> 기본 세팅 : pageNum = 1, amount = 10 */
     public Criteria() {
         this(1,10);
