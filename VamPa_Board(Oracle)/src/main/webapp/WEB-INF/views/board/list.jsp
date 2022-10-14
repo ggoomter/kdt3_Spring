@@ -231,9 +231,12 @@
 	    //Search 버튼 클릭
 	    $(".search_area button").on("click", function(e){
 	        e.preventDefault();
+	        console.log("서치버튼 클릭됨");
 	        let type = $(".search_area select").val();
 	        let keyword = $(".search_area input[name='keyword']").val();
 	        
+	        console.log('파악된 타입값 : '+type);
+	        console.log('파악된 키워드값 : '+keyword);
 	        if(!type){
 	            alert("검색 종류를 선택하세요.");
 	            return false;
